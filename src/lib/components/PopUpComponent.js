@@ -1,6 +1,6 @@
 import * as React from "React"
 import "./PopUpComponent.css";
-export const PopUpModalComponent = ({ text, closePopup, useFade = false, open } : {text : string, closePopup : any, useFade?: boolean, open: boolean}) => {
+export const PopUpModalComponent = ({ text, closePopup, useFade = false, open }) => {
 if (!open) {
   return null;
 }
