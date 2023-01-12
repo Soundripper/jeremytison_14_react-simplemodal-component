@@ -1,3 +1,3 @@
-import TextInput from "./components/TextInput";
+import PopUpModalComponent from "./components/PopUpComponent";
 
-export { TextInput };
+export { PopUpModalComponent };
