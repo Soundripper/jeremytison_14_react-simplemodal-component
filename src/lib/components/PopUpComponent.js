@@ -1,6 +1,6 @@
-import * as React from "React"
+import React from "react"
 import "./PopUpComponent.css";
-export const PopUpModalComponent = ({ text, closePopup, useFade = false, open }) => {
+const PopUpModalComponent = ({ text, closePopup, useFade = false, open }) => {
 if (!open) {
   return null;
 }
@@ -13,3 +13,5 @@ if (!open) {
     </div>
   );
 };
+
+export default PopUpModalComponent
