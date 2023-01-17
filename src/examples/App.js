@@ -15,7 +15,7 @@ const App = () => {
         onClick={() => openPopup()}
         className="popupButton">Popup</button>
         <div>
-            <PopUpModalComponent open={open} useFade={true} text="Popup text!" closePopup={() => setOpen(false)} />
+            <PopUpModalComponent openModal={open} useFade={true} text="Popup text!" closePopup={() => setOpen(false)} />
         </div>
       </div>
     )
