@@ -1,7 +1,7 @@
 import React from "react";
 import "./PopUpComponent.css";
 import useEscape from "../hooks/useEscape"
-export const PopUpModalComponent = ({ text, useFade = false, openModal, closePopup}) => {
+const PopUpModalComponent = ({ text, useFade = false, openModal, closePopup}) => {
   useEscape(closePopup);
 
   if (!openModal) {
@@ -18,4 +18,4 @@ export const PopUpModalComponent = ({ text, useFade = false, openModal, closePop
   );
 };
 
-// export default PopUpModalComponent
+export default PopUpModalComponent
