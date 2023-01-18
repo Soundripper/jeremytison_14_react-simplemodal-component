@@ -1,16 +1,66 @@
-# simple-component-library
-
-A library of React components created using [`create-component-lib`](https://www.npmjs.com/package/create-component-lib).
-
-Learn more: https://hackernoon.com/creating-a-library-of-react-components-using-create-react-app-without-ejecting-d182df690c6b
+# react-simplemodal-component
+A simple react modal popUp.
+MIT licence.
 
 ## Installation
 
 ```
-npm install simple-component-library
+npm install react-simplemodal-component
+```
+
+## example and props:
+You can override any of the default css properties in the component props (look at the js code example below)
+
+- 'myPopupContainerStyle' is the page blocker that contains the modal.
+- 'myPopupBodyStyle' styles the modal.
+- 'myPopupCloseButtonStyle' is here to place and style the close button of the modal.
+- 'fadeanimduration' will determine the duration of the fade in animation (set it to 0 to disable the fading transition)
+
+- 'openModal' is required in the props, it is initialized in the state openModal.
+- 'text' is a string that will define the content of the modal.
+- 'closePopup' is required, it will fire the function when you close the modal.
+
+- Place the openPopup function on the button (onClick={() => openPopup()}) that will open the modal.
+
+- Pressing the escape key on your keyboard will close the modal.
+
+```js
+import React from "react";
+import PopUpModalComponent from "../lib/components/PopUpComponent";
+import { useState } from "react";
+
+const App = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+  const openPopup = () => {
+    setOpenModal(true);
+  }
+
+  return (
+    <div style={{ width: 640, margin: "15px auto" }}>
+      <button 
+      onClick={() => openPopup()}
+      className="popupButton">Popup</button>
+      <div>
+          {<PopUpModalComponent
+          myPopupBodyStyle={{borderRadius: "10px", backgroundColor: 'rgba(246, 162, 179, 0.8)'}}
+          myPopupContainerStyle={{backgroundColor: "rgba(40, 40, 40, 0.5)"}}
+          myPopupCloseButtonStyle={{backgroundColor: "rgba(200, 40, 40, 1)", borderRadius: "50px", position:"absolute", right: "-10px", top:"-10px"}}
+          fadeanimduration="2s"
+          openModal={openModal}
+          text={'popUp'}
+          closePopup={() => setOpenModal(false)}
+          />}
+      </div>
+    </div>
+  )
+}
+export default App;
 ```
 
 ## default css :
+
+```css
 .popup-container {
     position: fixed;
     width: 100%;
@@ -44,38 +94,4 @@ npm install simple-component-library
     margin-left: 10px;
     cursor: pointer;
 }
-
-## example:
-
-import React from "react";
-import PopUpModalComponent from "../lib/components/PopUpComponent";
-import { useState } from "react";
-
-const App = () => {
-  const [openModal, setOpenModal] = useState(false);
-
-  const openPopup = () => {
-    setOpenModal(true);
-  }
-
-  return (
-    <div style={{ width: 640, margin: "15px auto" }}>
-      <button 
-      onClick={() => openPopup()}
-      className="popupButton">Popup</button>
-      <div>
-          {<PopUpModalComponent
-          myPopupBodyStyle={{borderRadius: "10px", backgroundColor: 'rgba(246, 162, 179, 0.8)'}}
-          myPopupContainerStyle={{backgroundColor: "rgba(40, 40, 40, 0.5)"}}
-          myPopupCloseButtonStyle={{backgroundColor: "rgba(200, 40, 40, 1)", borderRadius: "50px", position:"absolute", right: "-10px", top:"-10px"}}
-          fadeanimduration="2s"
-          openModal={openModal}
-          text={'popUp'}
-          closePopup={() => setOpenModal(false)}
-          />}
-      </div>
-    </div>
-  )
-}
-export default App;
-
+```
