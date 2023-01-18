@@ -35,7 +35,8 @@
     "url": "git+https://github.com/Soundripper/jeremytison_14_react-simplemodal-component.git"
   },
   "dependencies": {
-    "@babel/cli": "^7.20.7"
+    "@babel/cli": "^7.20.7",
+    "styled-components": "^5.3.6"
   },
   "browserslist": {
     "production": [

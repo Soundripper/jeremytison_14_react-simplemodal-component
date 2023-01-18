@@ -1,7 +1,19 @@
 import React from "react";
 import "./PopUpComponent.css";
 import useEscape from "../hooks/useEscape"
-const PopUpModalComponent = ({ text, useFade = false, openModal, closePopup}) => {
+import styled, { keyframes } from 'styled-components'
+
+const fadeAnim = keyframes`
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+`
+
+const Component = styled.div`
+  animation-name: ${fadeAnim};
+  animation-duration: ${props => props.fadeanimduration};
+`
+
+const PopUpModalComponent = ({ text, openModal, closePopup, myPopupBodyStyle, myPopupContainerStyle, myPopupCloseButtonStyle, fadeanimduration}) => {
   useEscape(closePopup);
 
   if (!openModal) {
@@ -9,12 +21,12 @@ const PopUpModalComponent = ({ text, useFade = false, openModal, closePopup}) =>
   }
   
   return (
-    <div className={useFade ? " popup-container popup-fade" : "popup-container"}>
-      <div className="popup-body">
-      <h2>{text}</h2>
-      <button onClick={closePopup} className="popClosebutton">X</button>
+    <Component fadeanimduration={fadeanimduration} className={"popup-container"} style={myPopupContainerStyle}>
+      <div className="popup-body" style={myPopupBodyStyle}>
+        <h2>{text}</h2>
+        <button onClick={closePopup} className="popClosebutton" style={myPopupCloseButtonStyle}>X</button>
       </div>
-    </div>
+    </Component>
   );
 };
 
