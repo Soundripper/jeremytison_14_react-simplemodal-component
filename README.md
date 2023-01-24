@@ -11,7 +11,7 @@ npm install react-simplemodal-component
 ## example and props:
 You can override any of the default css properties in the component props (look at the js code example below)
 
-- 'myPopupContainerStyle' is the page blocker that contains the modal.
+- 'myPopupContainerStyle' is the page blocker that contains the modal (the background under the modal). Clicking on the blocker will close the modal.
 - 'myPopupBodyStyle' styles the modal.
 - 'myPopupCloseButtonStyle' is here to place and style the close button of the modal.
 - 'fadeanimduration' will determine the duration of the fade in animation (set it to 0 to disable the fading transition)
@@ -42,7 +42,7 @@ const App = () => {
       onClick={() => openPopup()}
       className="popupButton">Popup</button>
       <div>
-          {<PopUpModalComponent
+          <PopUpModalComponent
           myPopupBodyStyle={{borderRadius: "10px", backgroundColor: 'rgba(246, 162, 179, 0.8)'}}
           myPopupContainerStyle={{backgroundColor: "rgba(40, 40, 40, 0.5)"}}
           myPopupCloseButtonStyle={{backgroundColor: "rgba(200, 40, 40, 1)", borderRadius: "50px", position:"absolute", right: "-10px", top:"-10px"}}
@@ -50,7 +50,7 @@ const App = () => {
           openModal={openModal}
           text={'popUp'}
           closePopup={() => setOpenModal(false)}
-          />}
+          />
       </div>
     </div>
   )

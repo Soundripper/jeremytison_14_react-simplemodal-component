@@ -21,7 +21,7 @@ const PopUpModalComponent = ({ text, openModal, closePopup, myPopupBodyStyle, my
   }
   
   return (
-    <Component fadeanimduration={fadeanimduration} className={"popup-container"} style={myPopupContainerStyle}>
+    <Component fadeanimduration={fadeanimduration} className={"popup-container"} style={myPopupContainerStyle} onClick={closePopup}>
       <div className="popup-body" style={myPopupBodyStyle}>
         <h2>{text}</h2>
         <button onClick={closePopup} className="popClosebutton" style={myPopupCloseButtonStyle}>X</button>
